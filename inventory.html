@@ -24,8 +24,9 @@ description: >-
           <label for="year">Year</label>
           <select id="year" name="year">
             <option value="">Select Year</option>
-            {% for i in (1990..2024) %}
-            <option value="{{ 2024 | minus: forloop.index0 }}">{{ 2024 | minus: forloop.index0 }}</option>
+            {% assign current_year = 'now' | date: "%Y" | plus: 0 %}
+            {% for i in (1990..current_year) %}
+            <option value="{{ current_year | minus: forloop.index0 }}">{{ current_year | minus: forloop.index0 }}</option>
             {% endfor %}
           </select>
         </div>
