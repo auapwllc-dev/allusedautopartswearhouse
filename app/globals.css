@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color Palette - Industrial Theme */
+  --color-background: #0f0f0f;
+  --color-foreground: #ffffff;
+  --color-primary: #f97316;
+  --color-primary-dark: #ea580c;
+  --color-accent: #64748b;
+  --color-accent-light: #94a3b8;
+  --color-border: #1e293b;
+  --color-error: #dc2626;
+  --color-success: #16a34a;
+  
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --radius: 0.375rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility Classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+.container-custom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Styling */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
