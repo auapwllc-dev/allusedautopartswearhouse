@@ -1,2 +1,2 @@
 # allusedautopartswearhouse
-allusedautopartswearhouse.us/
+https://allusedautopartswearhouse.us/
