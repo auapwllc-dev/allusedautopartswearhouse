@@ -1,17 +1,30 @@
-import type { Metadata, Viewport } from 'next'
-import './globals.css'
+import type { Metadata, Viewport } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+import { site } from "@/lib/site"
+import SiteHeader from "./components/SiteHeader"
+import SiteFooter from "./components/SiteFooter"
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+})
 
 export const metadata: Metadata = {
-  title: 'All Used Auto Parts Warehouse | Quality Salvage Parts',
-  description: 'Professional auto salvage warehouse offering quality used and salvage auto parts at competitive prices. Fast shipping and expert customer service.',
-  keywords: 'used auto parts, salvage parts, auto salvage, used car parts, replacement parts',
-  authors: [{ name: 'All Used Auto Parts Warehouse' }],
-  viewport: 'width=device-width, initial-scale=1.0',
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.title} | Quality Used Auto Parts`,
+    template: `%s | ${site.title}`,
+  },
+  description: site.description,
+  keywords: "used auto parts, salvage parts, engines, transmissions, body parts, used car parts",
 }
 
 export const viewport: Viewport = {
-  themeColor: '#f97316',
-  userScalable: true,
+  themeColor: "#c0392b",
+  width: "device-width",
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -20,9 +33,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="bg-background text-foreground">
-        {children}
+    <html lang="en" className={inter.variable}>
+      <body>
+        <SiteHeader />
+        <main>{children}</main>
+        <SiteFooter />
       </body>
     </html>
   )
